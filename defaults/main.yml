@@ -1,0 +1,39 @@
+---
+# defaults file for ispmailadmin
+ispmailadmin_version: 0.9.7
+ispmailadmin_htdocs: /var/www/ispmailadmin
+
+### DATABASE
+ispmailadmin_db_user: db_user
+ispmailadmin_db_pass: db_pass
+ispmailadmin_db_name: mailserver
+ispmailadmin_db_host: 127.0.0.1
+ispmailadmin_db_port: 3600
+# Optional, can be faster
+ispmailadmin_db_socket_enable: true
+ispmailadmin_db_socket: /run/mysqld/mysqld.sock
+
+### ACCESS CONTROLS
+# account = Only one user will administrate ISPmail Admin but all users with an email–account may login (using their password) and manage aliases for their accounts.
+# adm = Only one user will use ISPmail Admin and that is the administrator.
+# admauto = Same as above, but when you've protected ISPmail Admin behind a .htaccess username and password, another login is not really needed.
+ispmailadmin_access: account
+
+# Use a strong password, yes? Please?
+ispmailadmin_user: admin_user
+ispmailadmin_pass: admin_pass
+
+### PASSWORD HASHES
+# use: bcrypt, sha256 or md5 ?
+ispamailadmin_pass_hashes: bcrypt
+
+### QUOTA
+ispmailadmin_quota: true
+# in bytes. 0 is unlimited, 1GB = 2^30 Bytes = 1073741824
+ispmailadmin_quota_default: 0
+# convenience for input field
+ispmailadmin_quota_step: 1073741824
+
+### GUI 
+# Spread long lists on multiple pages. Set number of maximum entries per page. Changes take effect after login/logout.
+ispmailadmin_list_max_entries: 200

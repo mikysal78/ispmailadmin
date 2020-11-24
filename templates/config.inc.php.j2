@@ -1,0 +1,57 @@
+<?php
+//  {{ ansible_managed }}
+
+/**
+** @package    ISPmail_Admin
+** @author     Ole Jungclaussen
+** @version    {{ ispmailadmin_version }}
+**/
+
+/** ** DATABASE ACCESS **/
+define('IMA_CFG_DB_HOST',     '{{ ispmailadmin_db_host }}');
+define('IMA_CFG_DB_PORT',     '{{ ispmailadmin_db_port }}');
+{% if ispmailadmin_db_socket_enable is sameas true %}
+define('IMA_CFG_DB_SOCKET',   '{{ ispmailadmin_db_socket }}');
+{% endif %}
+
+define('IMA_CFG_DB_USER',     '{{ ispmailadmin_db_user }}');
+define('IMA_CFG_DB_PASSWORD', '{{ ispmailadmin_db_pass }}');
+define('IMA_CFG_DB_DATABASE', '{{ispmailadmin_db_name }}');
+
+/** ACCESS CONTROL **/
+{% if 'ispmailadmin_access'  == "account" %}
+define('IMA_CFG_LOGIN', IMA_LOGINTYPE_ACCOUNT); 
+{% endif %}
+{% if 'ispmailadmin_access'  == "adm" %}
+define('IMA_CFG_LOGIN', IMA_LOGINTYPE_ADM); 
+{% endif %}
+{% if 'ispmailadmin_access'  == "admauto" %}
+define('IMA_CFG_LOGIN', IMA_LOGINTYPE_ADMAUTO); 
+{% endif %}
+
+define('IMA_CFG_ADM_USER',  '{{ ispmailadmin_user }}');
+define('IMA_CFG_ADM_PASS',  '{{ ispmailadmin_pass }}');
+
+/** PASSWORD HASHES **/
+{% if 'ispamailadmin_pass_hashes'  == "bcrypt" %}
+define('IMA_CFG_USE_BCRYPT_HASHES', true);
+{% endif %}
+{% if 'ispamailadmin_pass_hashes'  == "sha256" %}
+define('IMA_CFG_USE_SHA256_HASHES', true);
+{% endif %}
+{% if 'ispamailadmin_pass_hashes'  == "md5" %}
+ define('IMA_CFG_USE_MD5_HASHES', true);
+{% endif %}
+
+/** QUOTAS **/
+{% if ispmailadmin_quota is sameas true %}
+define('IMA_CFG_USE_QUOTAS', true);
+{% else %}
+define('IMA_CFG_USE_QUOTAS', false);
+{% endif %}
+define('IMA_CFG_DEFAULT_QUOTA', {{ ispmailadmin_quota_default }});
+define('IMA_CFG_QUOTA_STEP', {{ ispmailadmin_quota_step }});
+
+/** GUI **/
+define('IMA_LIST_MAX_ENTRIES', {{ ispmailadmin_list_max_entries }});
+?>

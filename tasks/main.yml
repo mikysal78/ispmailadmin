@@ -1,0 +1,41 @@
+---
+# tasks file for ispmailadmin
+- name: ISPMailAdmin | extract ispmailadmin package
+  unarchive:
+    src: "https://www.ima.jungclaussen.com/dwn/dwn.php?v={{ ispmailadmin_version }}&f=.tar.gz"
+    dest: /tmp
+    remote_src: yes
+
+- name: ISPMailAdmin | create directory htdocs
+  file:
+    path: "{{ ispmailadmin_htdocs }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0755
+
+- name: ISPMailAdmin | copy source to htdocs
+  shell: 'cp -r /tmp/ispmailadmin-{{ ispmailadmin_version }}/htdocs/. {{ ispmailadmin_htdocs }}'
+
+- name: ISPMailAdmin | set config.inc.php file
+  template:
+    src: config.inc.php.j2
+    dest: "{{ ispmailadmin_htdocs }}/cfg/config.inc.php"
+
+- name: ISPMailAdmin | clean example config
+  file:
+    state: absent
+    path: "{{ ispmailadmin_htdocs }}/cfg/config.sample.inc.php"
+
+- name: ISPMailAdmin | copy database schema.sql file
+  copy:
+    src: schema.sql
+    dest: /tmp
+
+- name: ISPMailAdmin | import database schema.sql
+  mysql_db:
+    name: "{{ ispmailadmin_db_name }}"
+    login_user: "{{ ispmailadmin_db_name }}"
+    login_password: "{{ ispmailadmin_db_name }}"
+    state: import
+    target: /tmp/schema.sql

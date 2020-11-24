@@ -16,7 +16,7 @@ Mail server and Web Server (LEMP or LAMP).
 I using this role:
 [Ansible Role Postfix-Dovecot](https://github.com/mikysal78/ansible-role-postfix-dovecot) fork from [StackFocus](https://github.com/StackFocus/ansible-role-postfix-dovecot)
 and
-[Ansible Mysql](https://github.com/HanXHX/ansible-mysql) of [HanXHX](https://github.com/HanXHX/ansible-mysql)
+[Ansible Mysql](https://github.com/HanXHX/ansible-mysql) of [HanXHX](https://github.com/HanXHX)
 
 
 Role Variables

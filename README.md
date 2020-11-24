@@ -6,7 +6,7 @@ Role to install and upgrade ISP Mail Admin
 Package of:
 [ISPmail Admin by Ole Jungclaussen](https://www.ima.jungclaussen.com)
 
-[Demo Version](Demo https://www.ima.jungclaussen.com/demo/)
+[Demo Version](https://www.ima.jungclaussen.com/demo/)
 
 Requirements
 ------------
@@ -14,9 +14,9 @@ Requirements
 Mail server and Web Server (LEMP or LAMP).
 
 I using this role:
-[Ansible Role Postfix-Dovecot fork from @StackFocus](https://github.com/mikysal78/ansible-role-postfix-dovecot)
+[Ansible Role Postfix-Dovecot](https://github.com/mikysal78/ansible-role-postfix-dovecot) fork from [StackFocus](https://github.com/StackFocus/ansible-role-postfix-dovecot)
 and
-[Ansible Mysql of @HanXHX](https://github.com/HanXHX/ansible-mysql)
+[Ansible Mysql](https://github.com/HanXHX/ansible-mysql) of [HanXHX](https://github.com/HanXHX/ansible-mysql)
 
 
 Role Variables

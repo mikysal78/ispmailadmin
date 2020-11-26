@@ -4,6 +4,7 @@ ispmailadmin_version: 0.9.7
 ispmailadmin_htdocs: /var/www/ispmailadmin
 
 ### DATABASE
+ispmailadmin_db_pass_root: ""
 ispmailadmin_db_user: db_user
 ispmailadmin_db_pass: db_pass
 ispmailadmin_db_name: mailserver

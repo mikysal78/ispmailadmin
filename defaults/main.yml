@@ -1,6 +1,6 @@
 ---
 # defaults file for ispmailadmin
-ispmailadmin_version: 0.9.7
+ispmailadmin_version: 0.9.9
 ispmailadmin_htdocs: /var/www/ispmailadmin
 
 ### DATABASE
@@ -8,8 +8,8 @@ ispmailadmin_db_pass_root: ""
 ispmailadmin_db_user: db_user
 ispmailadmin_db_pass: db_pass
 ispmailadmin_db_name: mailserver
-ispmailadmin_db_host: 127.0.0.1
-ispmailadmin_db_port: 3600
+ispmailadmin_db_host: localhost
+ispmailadmin_db_port: 3306
 # Optional, can be faster
 ispmailadmin_db_socket_enable: true
 ispmailadmin_db_socket: /run/mysqld/mysqld.sock
